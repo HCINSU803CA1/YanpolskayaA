@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище JobModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Basket">
+          <Key>
+            <PropertyRef Name="id_B" />
+          </Key>
+          <Property Name="id_B" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_UB" Type="int" Nullable="false" />
+          <Property Name="id_PB" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id_P" />
+          </Key>
+          <Property Name="id_P" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_P" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="price_P" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="desc_P" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role_">
+          <Key>
+            <PropertyRef Name="id_r" />
+          </Key>
+          <Property Name="id_r" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_r" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="descript_r" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id_u" />
+          </Key>
+          <Property Name="id_u" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login_u" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pass_u" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name_u" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="surname_u" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone_u" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_r" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Basket__id_PB__3E52440B">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id_P" />
+            </Principal>
+            <Dependent Role="Basket">
+              <PropertyRef Name="id_PB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Basket__id_UB__3D5E1FD2">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_u" />
+            </Principal>
+            <Dependent Role="Basket">
+              <PropertyRef Name="id_UB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__id_r__38996AB5">
+          <End Role="Role_" Type="Self.Role_" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role_">
+              <PropertyRef Name="id_r" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_r" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище JobModelContainer">
+          <EntitySet Name="Basket" EntityType="Self.Basket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role_" EntityType="Self.Role_" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Basket__id_PB__3E52440B" Association="Self.FK__Basket__id_PB__3E52440B">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Basket" EntitySet="Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Basket__id_UB__3D5E1FD2" Association="Self.FK__Basket__id_UB__3D5E1FD2">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Basket" EntitySet="Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__id_r__38996AB5" Association="Self.FK__Users__id_r__38996AB5">
+            <End Role="Role_" EntitySet="Role_" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JobModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Basket">
+          <Key>
+            <PropertyRef Name="id_B" />
+          </Key>
+          <Property Name="id_B" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_UB" Type="Int32" Nullable="false" />
+          <Property Name="id_PB" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Basket__id_PB__3E52440B" FromRole="Basket" ToRole="Product" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Basket__id_UB__3D5E1FD2" FromRole="Basket" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id_P" />
+          </Key>
+          <Property Name="id_P" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_P" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="price_P" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="desc_P" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Basket" Relationship="Self.FK__Basket__id_PB__3E52440B" FromRole="Product" ToRole="Basket" />
+        </EntityType>
+        <EntityType Name="Role_">
+          <Key>
+            <PropertyRef Name="id_r" />
+          </Key>
+          <Property Name="id_r" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_r" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descript_r" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__id_r__38996AB5" FromRole="Role_" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id_u" />
+          </Key>
+          <Property Name="id_u" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login_u" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pass_u" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name_u" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="surname_u" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone_u" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_r" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Basket" Relationship="Self.FK__Basket__id_UB__3D5E1FD2" FromRole="Users" ToRole="Basket" />
+          <NavigationProperty Name="Role_" Relationship="Self.FK__Users__id_r__38996AB5" FromRole="Users" ToRole="Role_" />
+        </EntityType>
+        <Association Name="FK__Basket__id_PB__3E52440B">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id_P" />
+            </Principal>
+            <Dependent Role="Basket">
+              <PropertyRef Name="id_PB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Basket__id_UB__3D5E1FD2">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_u" />
+            </Principal>
+            <Dependent Role="Basket">
+              <PropertyRef Name="id_UB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__id_r__38996AB5">
+          <End Role="Role_" Type="Self.Role_" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role_">
+              <PropertyRef Name="id_r" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_r" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entitie" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Basket" EntityType="Self.Basket" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Role_" EntityType="Self.Role_" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK__Basket__id_PB__3E52440B" Association="Self.FK__Basket__id_PB__3E52440B">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Basket" EntitySet="Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Basket__id_UB__3D5E1FD2" Association="Self.FK__Basket__id_UB__3D5E1FD2">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Basket" EntitySet="Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__id_r__38996AB5" Association="Self.FK__Users__id_r__38996AB5">
+            <End Role="Role_" EntitySet="Role_" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище JobModelContainer" CdmEntityContainer="Entitie">
+          <EntitySetMapping Name="Basket">
+            <EntityTypeMapping TypeName="JobModel.Basket">
+              <MappingFragment StoreEntitySet="Basket">
+                <ScalarProperty Name="id_B" ColumnName="id_B" />
+                <ScalarProperty Name="id_UB" ColumnName="id_UB" />
+                <ScalarProperty Name="id_PB" ColumnName="id_PB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="JobModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="id_P" ColumnName="id_P" />
+                <ScalarProperty Name="name_P" ColumnName="name_P" />
+                <ScalarProperty Name="price_P" ColumnName="price_P" />
+                <ScalarProperty Name="desc_P" ColumnName="desc_P" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role_">
+            <EntityTypeMapping TypeName="JobModel.Role_">
+              <MappingFragment StoreEntitySet="Role_">
+                <ScalarProperty Name="id_r" ColumnName="id_r" />
+                <ScalarProperty Name="name_r" ColumnName="name_r" />
+                <ScalarProperty Name="descript_r" ColumnName="descript_r" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="JobModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id_u" ColumnName="id_u" />
+                <ScalarProperty Name="login_u" ColumnName="login_u" />
+                <ScalarProperty Name="pass_u" ColumnName="pass_u" />
+                <ScalarProperty Name="name_u" ColumnName="name_u" />
+                <ScalarProperty Name="surname_u" ColumnName="surname_u" />
+                <ScalarProperty Name="phone_u" ColumnName="phone_u" />
+                <ScalarProperty Name="id_r" ColumnName="id_r" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

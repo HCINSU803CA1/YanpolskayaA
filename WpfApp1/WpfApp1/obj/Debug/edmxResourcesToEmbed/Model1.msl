@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище JobModelContainer" CdmEntityContainer="Entitie">
+    <EntitySetMapping Name="Basket">
+      <EntityTypeMapping TypeName="JobModel.Basket">
+        <MappingFragment StoreEntitySet="Basket">
+          <ScalarProperty Name="id_B" ColumnName="id_B" />
+          <ScalarProperty Name="id_UB" ColumnName="id_UB" />
+          <ScalarProperty Name="id_PB" ColumnName="id_PB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="JobModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="id_P" ColumnName="id_P" />
+          <ScalarProperty Name="name_P" ColumnName="name_P" />
+          <ScalarProperty Name="price_P" ColumnName="price_P" />
+          <ScalarProperty Name="desc_P" ColumnName="desc_P" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_">
+      <EntityTypeMapping TypeName="JobModel.Role_">
+        <MappingFragment StoreEntitySet="Role_">
+          <ScalarProperty Name="id_r" ColumnName="id_r" />
+          <ScalarProperty Name="name_r" ColumnName="name_r" />
+          <ScalarProperty Name="descript_r" ColumnName="descript_r" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="JobModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id_u" ColumnName="id_u" />
+          <ScalarProperty Name="login_u" ColumnName="login_u" />
+          <ScalarProperty Name="pass_u" ColumnName="pass_u" />
+          <ScalarProperty Name="name_u" ColumnName="name_u" />
+          <ScalarProperty Name="surname_u" ColumnName="surname_u" />
+          <ScalarProperty Name="phone_u" ColumnName="phone_u" />
+          <ScalarProperty Name="id_r" ColumnName="id_r" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

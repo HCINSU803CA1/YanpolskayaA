@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище JobModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Basket">
+    <Key>
+      <PropertyRef Name="id_B" />
+    </Key>
+    <Property Name="id_B" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_UB" Type="int" Nullable="false" />
+    <Property Name="id_PB" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id_P" />
+    </Key>
+    <Property Name="id_P" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_P" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="price_P" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="desc_P" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role_">
+    <Key>
+      <PropertyRef Name="id_r" />
+    </Key>
+    <Property Name="id_r" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_r" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descript_r" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id_u" />
+    </Key>
+    <Property Name="id_u" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="login_u" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pass_u" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="name_u" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="surname_u" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="phone_u" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_r" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Basket__id_PB__3E52440B">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id_P" />
+      </Principal>
+      <Dependent Role="Basket">
+        <PropertyRef Name="id_PB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Basket__id_UB__3D5E1FD2">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id_u" />
+      </Principal>
+      <Dependent Role="Basket">
+        <PropertyRef Name="id_UB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__id_r__38996AB5">
+    <End Role="Role_" Type="Self.Role_" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role_">
+        <PropertyRef Name="id_r" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="id_r" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище JobModelContainer">
+    <EntitySet Name="Basket" EntityType="Self.Basket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role_" EntityType="Self.Role_" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Basket__id_PB__3E52440B" Association="Self.FK__Basket__id_PB__3E52440B">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Basket" EntitySet="Basket" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Basket__id_UB__3D5E1FD2" Association="Self.FK__Basket__id_UB__3D5E1FD2">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Basket" EntitySet="Basket" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__id_r__38996AB5" Association="Self.FK__Users__id_r__38996AB5">
+      <End Role="Role_" EntitySet="Role_" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
