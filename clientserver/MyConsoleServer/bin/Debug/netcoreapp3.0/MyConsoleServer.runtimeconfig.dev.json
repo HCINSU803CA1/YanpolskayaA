@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\oriko32\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\oriko32\\.nuget\\packages"
+    ]
+  }
+}

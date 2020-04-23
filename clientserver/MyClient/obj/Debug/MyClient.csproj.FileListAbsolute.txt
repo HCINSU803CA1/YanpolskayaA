@@ -1,0 +1,17 @@
+D:\Repos\MyClient\bin\Debug\MyClient.exe.config
+D:\Repos\MyClient\bin\Debug\MyClient.exe
+D:\Repos\MyClient\bin\Debug\MyClient.pdb
+D:\Repos\MyClient\obj\Debug\MainWindow.g.cs
+D:\Repos\MyClient\obj\Debug\App.g.cs
+D:\Repos\MyClient\obj\Debug\MyClient_MarkupCompile.cache
+D:\Repos\MyClient\obj\Debug\MyClient_MarkupCompile.lref
+D:\Repos\MyClient\obj\Debug\MainWindow.baml
+D:\Repos\MyClient\obj\Debug\MyClient.g.resources
+D:\Repos\MyClient\obj\Debug\MyClient.Properties.Resources.resources
+D:\Repos\MyClient\obj\Debug\MyClient.csproj.GenerateResource.cache
+D:\Repos\MyClient\obj\Debug\MyClient.exe
+D:\Repos\MyClient\obj\Debug\MyClient.pdb
+D:\Repos\MyClient\obj\Debug\MyClient.csprojAssemblyReference.cache
+D:\Repos\MyClient\bin\Debug\Newtonsoft.Json.dll
+D:\Repos\MyClient\bin\Debug\Newtonsoft.Json.xml
+D:\Repos\MyClient\obj\Debug\MyClient.csproj.CopyComplete
